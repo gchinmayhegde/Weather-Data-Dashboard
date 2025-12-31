@@ -1,38 +1,50 @@
 .App {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
   text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffd9d9 0%,#a6b8ff 100%)
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-heading {
+  margin-bottom: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tag-line {
+  color: #555;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.city-input {
+  width: 70%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.get-weather-btn {
+  padding: 8px 12px;
+  margin-left: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.get-weather-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.weather-data-main {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #000000;
+  background: linear-gradient(135deg,#ffd9d9 0%,#a6b8ff 100%);
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }

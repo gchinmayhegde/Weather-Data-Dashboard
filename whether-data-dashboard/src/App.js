@@ -1,5 +1,5 @@
-import React from "react";
 import { useState,useEffect } from "react";
+import "./App.css";
 
 function App(){
 
@@ -9,13 +9,9 @@ function App(){
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log(selectedCity);
-  //console.log(city);
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
-    console.log(selectedCity);
-    
     if(selectedCity === "") return;
 
     const fetchWeatherData = async ()=> {
@@ -38,14 +34,25 @@ function App(){
     fetchWeatherData(); 
   }, [selectedCity]);
 
+  useEffect(() => {
+    document.title = selectedCity ? `Weather in ${selectedCity}` : "Weather Data Dashboard";
+  }, [selectedCity]);
+
+  const handleGetWeather = () => {
+    if(city.trim() !== ""){
+      setSelectedCity(city.trim());
+      setCity("");
+    }
+  };
+
 
   return(
     <div className="App">
-      <h1 className="main-heading">Weather Data Dashboard</h1>
-      <p className="tag-line">Welcome to the Weather Data Dashboard!</p>
+      <strong><h1 className="main-heading">Weather Data Dashboard</h1></strong>
+      <p className="tag-line">Your quick view into today’s weather</p>
 
       <input type="text" className="city-input" placeholder="Enter City Name" value={city} onChange={(e)=>setCity(e.target.value)}/>
-      <button className="get-weather-btn" onClick={()=>setSelectedCity(city)}>Get Weather</button>
+      <button className="get-weather-btn" onClick={handleGetWeather} disabled={loading}>Get Weather</button>
 
       {loading && !error && <p>Loading weather data...</p>}
       {error && <p style={{color:"red"}}>Error: {error}</p>}
@@ -58,8 +65,7 @@ function App(){
         <p>Humidity: {weatherData.main.humidity} %</p>
         <p>Wind Speed: {weatherData.wind.speed} m/s</p>
       </div>
-    )}
-      
+    )} 
     </div>
   )
 }
