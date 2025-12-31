@@ -2,7 +2,7 @@
 A simple React application that fetches and displays real-time weather data for a user-selected city using the useEffect hook and an external API.
 
 Demo Link:
-
+https://weather-data-dashboard-beta.vercel.app/
 
 -I used the useEffect hook from React in order to manage responses from openWeather API
 -I defined fetchWeatherData() function inside useEffect scope and Used selectedCity in dependency array of useEffect
